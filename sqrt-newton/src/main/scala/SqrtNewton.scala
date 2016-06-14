@@ -12,24 +12,22 @@ class SqrtNewton extends App {
 
   def sqrt(number: Double): Double = {
 
-    def sqrtHelper(guess: Double, number: Double): Double = {
-      if (isGoodEnough(guess, number))
+    def sqrtHelper(guess: Double): Double = {
+      if (isGoodEnough(guess))
         guess
       else
-        sqrtHelper(improve(guess, number), number)
+        sqrtHelper(improve(guess))
 
     }
 
-    def improve(guess: Double, number: Double): Double = {
+    def improve(guess: Double): Double = {
       (guess + number / guess) / 2
     }
 
-    def isGoodEnough(guess: Double, number: Double): Boolean = {
+    def isGoodEnough(guess: Double): Boolean = {
       abs(guess * guess - number) / number < 0.001
     }
-
-
-    sqrtHelper(1.0, number)
+    sqrtHelper(1.0)
   }
 
 }

@@ -22,7 +22,7 @@ class SqrtNewton extends App {
   }
 
   def isGoodEnough(guess: Double, number : Double) : Boolean = {
-    abs(guess * guess - number) < 0.001
+    abs(guess * guess - number) / number < 0.001
   }
 
   def sqrt(number : Double) : Double = {
